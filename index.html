@@ -509,7 +509,7 @@
                 <a href="#" class="nav-link" onclick="showSection('cv')">CV</a>
                 <a href="#" class="nav-link" onclick="showSection('publications')">Publications</a>
                 <a href="#" class="nav-link" onclick="showSection('contact')">Contact</a>
-                <a href="#" class="nav-link" onclick="showSection('admin')">Admin</a>
+                <a href="#" class="nav-link" onclick="showSection('admin')" id="adminLink" style="display: none;">Admin</a>
             </div>
         </div>
     </nav>
@@ -742,6 +742,56 @@
     <input type="file" id="profileUpload" accept="image/*">
 
     <script>
+        // Admin 탭 숨김/표시 단축키 (Ctrl+Shift+A)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                e.preventDefault();
+                const adminLink = document.getElementById('adminLink');
+                if (adminLink.style.display === 'none') {
+                    adminLink.style.display = 'inline-block';
+                    // 성공 메시지를 좀 더 세련되게 표시
+                    showToast('🔧 Admin mode activated!', 'success');
+                } else {
+                    adminLink.style.display = 'none';
+                    showToast('🔒 Admin mode deactivated!', 'info');
+                }
+            }
+        });
+
+        // 토스트 메시지 함수
+        function showToast(message, type) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#10b981' : '#3b82f6'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-weight: 500;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            // 애니메이션으로 나타내기
+            setTimeout(() => {
+                toast.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // 3초 후 사라지게
+            setTimeout(() => {
+                toast.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
         // Navigation functionality
         function showSection(sectionId) {
             // Hide all sections
