@@ -498,7 +498,38 @@
             border-bottom-color: #ffffff;
             transform: translateY(-1px);
         }
-
+        .cv-item-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .university-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: white;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        
+        .cv-details {
+            flex: 1;
+        }
+        
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .university-logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .cv-item-content {
+                gap: 0.8rem;
+            }
+        }
         
     </style>
 </head>
@@ -592,16 +623,26 @@
                 <div class="cv-section">
                     <h3>Education</h3>
                     <div class="cv-item">
-                        <h4>Integrated M.S.& Ph.D student in Biomedical Science</h4>
-                        <div class="date">2025.03 - Present</div>
-                        <div class="institution">Seoul National University</div>
-                        <p>Advisor: Prof. Kyungsu Kim</p>
+                        <div class="cv-item-content">
+                            <img src="images/snu_logo.png" alt="SNU Logo" class="university-logo">
+                            <div class="cv-details">
+                                <h4>M.S. in Biomedical Science</h4>
+                                <div class="date">2025.03 - Present</div>
+                                <div class="institution">Seoul National University</div>
+                                <p>Advisor: Prof. Kyungsu Kim</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="cv-item">
-                        <h4>B.S. in Biomedical Engineering & Atrificial Intelligence</h4>
-                        <div class="date">2021.03 - 2025.02</div>
-                        <div class="institution">Korea University</div>
-                        <p>GPA: 3.9/4.5 </p>
+                        <div class="cv-item-content">
+                            <img src="images/korea_logo.png" alt="Korea University Logo" class="university-logo">
+                            <div class="cv-details">
+                                <h4>B.S. in Biomedical Engineering & Artificial Intelligence</h4>
+                                <div class="date">2021.03 - 2025.02</div>
+                                <div class="institution">Korea University</div>
+                                <p>GPA: 3.9/4.5</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
