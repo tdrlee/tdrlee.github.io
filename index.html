@@ -530,6 +530,34 @@
                 gap: 0.8rem;
             }
         }
+
+        /* 프로필 박스 개선 */
+        .profile-info {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 링크 색상 변경 */
+        .profile-info a {
+            color: #333333 !important;
+            text-decoration: none;
+            border-bottom: 1px dotted #333333;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-shadow: none;
+        }
+        
+        .profile-info a:hover {
+            color: #000000 !important;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom-color: #000000;
+            transform: translateY(-1px);
+        }
         
     </style>
 </head>
