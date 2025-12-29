@@ -271,6 +271,9 @@
             margin-bottom: 1.5rem;
             border-left: 4px solid var(--secondary-color);
             transition: all 0.3s ease;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
         }
 
         .publication-item:hover {
@@ -278,11 +281,54 @@
             transform: translateX(5px);
         }
 
+        .publication-thumbnail {
+            width: 120px;
+            height: 120px;
+            min-width: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--border-color);
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .publication-thumbnail:hover {
+            border-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .publication-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .publication-content {
+            flex: 1;
+        }
+
         .publication-title {
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
+        }
+
+        .publication-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .publication-title a:hover {
+            color: var(--secondary-color);
         }
 
         .publication-authors {
@@ -309,11 +355,47 @@
             margin-bottom: 1.5rem;
             border-left: 4px solid var(--accent-color);
             transition: all 0.3s ease;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
         }
 
         .news-item:hover {
             border-left-color: var(--secondary-color);
             transform: translateX(5px);
+        }
+
+        .news-thumbnail {
+            width: 100px;
+            height: 100px;
+            min-width: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--border-color);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .news-thumbnail:hover {
+            border-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .news-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .news-content-wrapper {
+            flex: 1;
         }
 
         .news-date {
@@ -482,6 +564,17 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+
+            .publication-item,
+            .news-item {
+                flex-direction: column;
+            }
+
+            .publication-thumbnail,
+            .news-thumbnail {
+                width: 100%;
+                height: 200px;
+            }
         }
 
         /* Animations */
@@ -640,9 +733,15 @@
             <h2 class="section-title">News & Updates</h2>
             <div id="newsList">
                 <div class="news-item">
-                    <div class="news-date">June 2025</div>
-                    <div class="news-title">Paper Accepted at MICCAI 2025</div>
-                    <div class="news-content">Our paper on "OFF-CLIP: Improving Normal Detection Confidence in Radiology CLIP with Simple Off-Diagonal Term Auto-Adjustment" has been accepted for publication at MICCAI 2025.</div>
+                    <div class="news-thumbnail">
+                        📰
+                        <!-- 이미지 추가하려면: <img src="images/news1.jpg" alt="News thumbnail"> -->
+                    </div>
+                    <div class="news-content-wrapper">
+                        <div class="news-date">June 2025</div>
+                        <div class="news-title">Paper Accepted at MICCAI 2025</div>
+                        <div class="news-content">Our paper on "OFF-CLIP: Improving Normal Detection Confidence in Radiology CLIP with Simple Off-Diagonal Term Auto-Adjustment" has been accepted for publication at MICCAI 2025.</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -739,10 +838,16 @@
             <h2 class="section-title">Publications</h2>
             <div id="publicationsList">
                 <div class="publication-item">
-                    <div class="publication-title"><a href="https://arxiv.org/abs/2503.01794" target="_blank">OFF-CLIP: Improving Normal Detection Confidence in Radiology CLIP with Simple Off-Diagonal Term Auto-Adjustment</a></div>
-                    <div class="publication-authors">Junhyun Park∗, Chanyu Moon∗, Donghwan Lee, Kyungsu Kim†, Minho Hwang†</div>
-                    <div class="publication-journal">MICCAI(International Conference On Medical Image Computing And Computer Assited Intervention)</div>
-                    <div class="publication-year">2025</div>
+                    <div class="publication-thumbnail">
+                        📄
+                        <!-- 이미지 추가하려면: <img src="images/paper1.jpg" alt="Paper thumbnail"> -->
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title"><a href="https://arxiv.org/abs/2503.01794" target="_blank">OFF-CLIP: Improving Normal Detection Confidence in Radiology CLIP with Simple Off-Diagonal Term Auto-Adjustment</a></div>
+                        <div class="publication-authors">Junhyun Park∗, Chanyu Moon∗, Donghwan Lee, Kyungsu Kim†, Minho Hwang†</div>
+                        <div class="publication-journal">MICCAI(International Conference On Medical Image Computing And Computer Assited Intervention)</div>
+                        <div class="publication-year">2025</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -755,7 +860,7 @@
                     <div class="contact-icon">📧</div>
                     <div>
                         <strong>Email</strong><br>
-                        tdr.lee@snu.ac.kr
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="146070663a78717154677a613a75773a7f66">[email&#160;protected]</a>
                     </div>
                 </div>
                 
@@ -805,6 +910,11 @@
                         <label for="newsContent">Content</label>
                         <textarea id="newsContent" rows="3" required></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="newsImage">Thumbnail Image (Optional)</label>
+                        <input type="file" id="newsImage" accept="image/*">
+                        <small style="color: #94a3b8; display: block; margin-top: 0.5rem;">Upload an image for this news item</small>
+                    </div>
                     <button type="submit" class="btn">Add News</button>
                     <button type="button" class="btn" onclick="copyNewsCode()">📋 Copy HTML Code</button>
                 </form>
@@ -828,6 +938,11 @@
                     <div class="form-group">
                         <label for="pubYear">Year</label>
                         <input type="number" id="pubYear" min="2000" max="2030" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pubImage">Thumbnail Image (Optional)</label>
+                        <input type="file" id="pubImage" accept="image/*">
+                        <small style="color: #94a3b8; display: block; margin-top: 0.5rem;">Upload a representative image for this publication</small>
                     </div>
                     <button type="submit" class="btn">Add Publication</button>
                     <button type="button" class="btn" onclick="copyPublicationCode()">📋 Copy HTML Code</button>
@@ -876,7 +991,7 @@
     <!-- Hidden file inputs -->
     <input type="file" id="profileUpload" accept="image/*">
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Admin 탭 숨김/표시 단축키 (Ctrl+Shift+A)
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.shiftKey && e.key === 'A') {
@@ -1022,6 +1137,7 @@
             const date = document.getElementById('newsDate').value;
             const title = document.getElementById('newsTitle').value;
             const content = document.getElementById('newsContent').value;
+            const imageFile = document.getElementById('newsImage').files[0];
             
             // Format date
             const dateObj = new Date(date);
@@ -1032,20 +1148,48 @@
             
             const newsItem = document.createElement('div');
             newsItem.className = 'news-item';
-            newsItem.innerHTML = `
-                <div class="news-date">${formattedDate}</div>
-                <div class="news-title">${title}</div>
-                <div class="news-content">${content}</div>
-            `;
             
-            // Add to top of news list
-            const newsList = document.getElementById('newsList');
-            newsList.insertBefore(newsItem, newsList.firstChild);
+            // 이미지 처리
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    newsItem.innerHTML = `
+                        <div class="news-thumbnail">
+                            <img src="${e.target.result}" alt="News thumbnail">
+                        </div>
+                        <div class="news-content-wrapper">
+                            <div class="news-date">${formattedDate}</div>
+                            <div class="news-title">${title}</div>
+                            <div class="news-content">${content}</div>
+                        </div>
+                    `;
+                    
+                    // Add to top of news list
+                    const newsList = document.getElementById('newsList');
+                    newsList.insertBefore(newsItem, newsList.firstChild);
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                newsItem.innerHTML = `
+                    <div class="news-thumbnail">
+                        📰
+                    </div>
+                    <div class="news-content-wrapper">
+                        <div class="news-date">${formattedDate}</div>
+                        <div class="news-title">${title}</div>
+                        <div class="news-content">${content}</div>
+                    </div>
+                `;
+                
+                // Add to top of news list
+                const newsList = document.getElementById('newsList');
+                newsList.insertBefore(newsItem, newsList.firstChild);
+            }
             
             // Reset form
             this.reset();
             
-            alert('News item added successfully!');
+            showToast('✅ News item added successfully!', 'success');
         });
 
         // Publication form functionality
@@ -1056,22 +1200,50 @@
             const authors = document.getElementById('pubAuthors').value;
             const journal = document.getElementById('pubJournal').value;
             const year = document.getElementById('pubYear').value;
+            const imageFile = document.getElementById('pubImage').files[0];
             
             const publicationItem = document.createElement('div');
             publicationItem.className = 'publication-item';
-            publicationItem.innerHTML = `
-                <div class="publication-title">${title}</div>
-                <div class="publication-authors">${authors}</div>
-                <div class="publication-journal">${journal}</div>
-                <div class="publication-year">${year}</div>
-            `;
             
-            document.getElementById('publicationsList').appendChild(publicationItem);
+            // 이미지 처리
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    publicationItem.innerHTML = `
+                        <div class="publication-thumbnail">
+                            <img src="${e.target.result}" alt="Publication thumbnail">
+                        </div>
+                        <div class="publication-content">
+                            <div class="publication-title">${title}</div>
+                            <div class="publication-authors">${authors}</div>
+                            <div class="publication-journal">${journal}</div>
+                            <div class="publication-year">${year}</div>
+                        </div>
+                    `;
+                    
+                    document.getElementById('publicationsList').appendChild(publicationItem);
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                publicationItem.innerHTML = `
+                    <div class="publication-thumbnail">
+                        📄
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">${title}</div>
+                        <div class="publication-authors">${authors}</div>
+                        <div class="publication-journal">${journal}</div>
+                        <div class="publication-year">${year}</div>
+                    </div>
+                `;
+                
+                document.getElementById('publicationsList').appendChild(publicationItem);
+            }
             
             // Reset form
             this.reset();
             
-            alert('Publication added successfully!');
+            showToast('✅ Publication added successfully!', 'success');
         });
 
         // 복사 기능들
@@ -1096,6 +1268,7 @@
             const date = document.getElementById('newsDate').value;
             const title = document.getElementById('newsTitle').value;
             const content = document.getElementById('newsContent').value;
+            const imageFile = document.getElementById('newsImage').files[0];
             
             if (!date || !title || !content) {
                 alert('Please fill in all news fields first!');
@@ -1108,14 +1281,34 @@
                 month: 'long' 
             });
             
-            const htmlCode = `                <div class="news-item">
-                    <div class="news-date">${formattedDate}</div>
-                    <div class="news-title">${title}</div>
-                    <div class="news-content">${content}</div>
+            let thumbnailHTML = '';
+            if (imageFile) {
+                thumbnailHTML = `
+                    <div class="news-thumbnail">
+                        <img src="images/news_image_name.jpg" alt="News thumbnail">
+                    </div>`;
+            } else {
+                thumbnailHTML = `
+                    <div class="news-thumbnail">
+                        📰
+                    </div>`;
+            }
+            
+            const htmlCode = `                <div class="news-item">${thumbnailHTML}
+                    <div class="news-content-wrapper">
+                        <div class="news-date">${formattedDate}</div>
+                        <div class="news-title">${title}</div>
+                        <div class="news-content">${content}</div>
+                    </div>
                 </div>`;
             
+            let instruction = 'Add this code inside the <div id="newsList"> section, preferably at the top for latest news.';
+            if (imageFile) {
+                instruction += ' ⚠️ Don\'t forget to upload your image to the "images" folder in GitHub and update the src path (replace "news_image_name.jpg" with your actual filename)!';
+            }
+            
             copyToClipboard(htmlCode);
-            showCopyOutput('News Item HTML Code', htmlCode, 'Add this code inside the <div id="newsList"> section, preferably at the top for latest news.');
+            showCopyOutput('News Item HTML Code', htmlCode, instruction);
         }
 
         function copyPublicationCode() {
@@ -1123,21 +1316,42 @@
             const authors = document.getElementById('pubAuthors').value;
             const journal = document.getElementById('pubJournal').value;
             const year = document.getElementById('pubYear').value;
+            const imageFile = document.getElementById('pubImage').files[0];
             
             if (!title || !authors || !journal || !year) {
                 alert('Please fill in all publication fields first!');
                 return;
             }
             
-            const htmlCode = `                <div class="publication-item">
-                    <div class="publication-title">${title}</div>
-                    <div class="publication-authors">${authors}</div>
-                    <div class="publication-journal">${journal}</div>
-                    <div class="publication-year">${year}</div>
+            let thumbnailHTML = '';
+            if (imageFile) {
+                thumbnailHTML = `
+                    <div class="publication-thumbnail">
+                        <img src="images/paper_image_name.jpg" alt="Publication thumbnail">
+                    </div>`;
+            } else {
+                thumbnailHTML = `
+                    <div class="publication-thumbnail">
+                        📄
+                    </div>`;
+            }
+            
+            const htmlCode = `                <div class="publication-item">${thumbnailHTML}
+                    <div class="publication-content">
+                        <div class="publication-title">${title}</div>
+                        <div class="publication-authors">${authors}</div>
+                        <div class="publication-journal">${journal}</div>
+                        <div class="publication-year">${year}</div>
+                    </div>
                 </div>`;
             
+            let instruction = 'Add this code inside the <div id="publicationsList"> section.';
+            if (imageFile) {
+                instruction += ' ⚠️ Don\'t forget to upload your image to the "images" folder in GitHub and update the src path (replace "paper_image_name.jpg" with your actual filename)!';
+            }
+            
             copyToClipboard(htmlCode);
-            showCopyOutput('Publication HTML Code', htmlCode, 'Add this code inside the <div id="publicationsList"> section.');
+            showCopyOutput('Publication HTML Code', htmlCode, instruction);
         }
 
         function copyToClipboard(text) {
@@ -1185,12 +1399,4 @@ ${code}
             alert('Profile updated successfully!');
         });
 
-        // Smooth scroll effect
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-            });
-        });
-    </script>
-</body>
-</html>
+        // Smooth sc
